@@ -1,6 +1,6 @@
 # Aseprite Auto Update
 
-Aseprite Auto Update is an app that automatically checks for the latest stable release for Aseprite and updates it if needed.
+Aseprite Auto Update is an app that automatically checks for the latest stable release for Aseprite and updates it if needed. This is for Aseprite users who have built Aseprite rather than bought it.
 
 **Note:** The app is only available on Windows and targets 64-bit devices.
 
