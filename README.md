@@ -1,8 +1,8 @@
 # Aseprite Auto Update
 
-Aseprite Auto Update is an app that automatically checks for the latest stable release for Aseprite and updates it if needed. This is for Aseprite users who have built Aseprite rather than bought it.
+Aseprite Auto Update is a script that automatically checks for the latest stable release for Aseprite and updates it if needed. This is for Aseprite users who have built Aseprite rather than bought it.
 
-**Note:** The app is only available on Windows and targets 64-bit devices.
+**Note:** The script is only available on Windows and targets 64-bit devices.
 
 ## Dependencies
 
@@ -28,7 +28,7 @@ In case of any discrepancy, please refer to the comments in the PowerShell file 
 
 ## How It Works
 
-Under the hood, the app is simply a PowerShell script that has been converted to an executable file using the `ps2exe` module and given the Aseprite logo. The PowerShell script opens Aseprite and checks for any updates by comparing the current version of the local Aseprite Git repo and the latest release of the GitHub repo. In case of a newer version, a dialog box will ask the user whether to update or not, and the user can decide accordingly. The user can continue working while updating Aseprite. If Aseprite is up-to-date, the PowerShell script will exit and the user can continue doing their work.
+The PowerShell script opens Aseprite and checks for any updates by comparing the current version of the local Aseprite Git repo and the latest release of the GitHub repo. In case of a newer version, a dialog box will ask the user whether to update or not, and the user can decide accordingly. The user can continue working while updating Aseprite. If Aseprite is up-to-date, the PowerShell script will exit and the user can continue doing their work.
 
 In case of a poor/no Internet connection, the script will exit automatically without notification. Success/failure of an update will be shown at the end in the PowerShell window.
 
