@@ -1,8 +1,10 @@
 # Aseprite Auto Update
 
-Aseprite Auto Update is a script that automatically checks for the latest stable release for Aseprite and updates it if needed. This is for Aseprite users who have built Aseprite rather than bought it.
+Aseprite Auto Update is an app that automatically checks for the latest stable release for Aseprite and updates it if needed. This is for Aseprite users who have built Aseprite rather than bought it.
 
-**Note:** The script is only available on Windows and targets 64-bit devices.
+This app automatically opens Aseprite after checking for updates and updating (in case of a new version), so it serves as an add-on to Aseprite which the user can open instead of simply opening Aseprite.
+
+**Note:** The app is only available on Windows and targets 64-bit devices.
 
 ## Dependencies
 
@@ -28,8 +30,8 @@ In case of any discrepancy, please refer to the comments in the PowerShell file 
 
 ## How It Works
 
-The PowerShell script opens Aseprite and checks for any updates by comparing the current version of the local Aseprite Git repo and the latest release of the GitHub repo. In case of a newer version, a dialog box will ask the user whether to update or not, and the user can decide accordingly. The user can continue working while updating Aseprite. If Aseprite is up-to-date, the PowerShell script will exit and the user can continue doing their work.
+The app is a PowerShell script under the hood that has been built into an app using PS2EXE. The PowerShell script checks for any updates by comparing the current version of the local Aseprite Git repo and the latest release of the GitHub repo. In case of a newer version, a dialog box will ask the user whether to update or not, and the user can decide accordingly. If Aseprite is up-to-date, the PowerShell script will open Aseprite normally and exit.
 
-In case of a poor/no Internet connection, the script will exit automatically without notification. Success/failure of an update will be shown at the end in the PowerShell window.
+Success/failure of an update will be shown at the end in the PowerShell window.
 
 The PowerShell window will be visible for the entirety of the duration of the script run to ensure transparency and to enable the user to check the status of the update.
