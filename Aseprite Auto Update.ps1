@@ -23,14 +23,14 @@ $env:GIT_REDIRECT_STDERR = '2>&1'
 Set-Location $asepritePath
 
 $current = git describe --tags
-if (-not $?) {
+if ($LASTEXITCODE -ne 0) {
     Write-Output "Something went wrong while checking the current version of Aseprite. Please check the output above for more information."
     pause
     exit
 }
 
 $latest = gh release view --json tagName --jq ".tagName"
-if (-not $?) {
+if ($LASTEXITCODE -ne 0) {
     Write-Output "Something went wrong while checking for latest version on GitHub. Please check the output above for more information."
     pause
     exit
