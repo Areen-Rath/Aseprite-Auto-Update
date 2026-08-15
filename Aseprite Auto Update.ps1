@@ -1,5 +1,7 @@
 Add-Type -AssemblyName PresentationFramework
 
+$PSNativeCommandUseErrorActionPreference = $true
+
 <#
     CMake, Ninja, Git and GitHub CLI must be installed and added
     to the system PATH for this script to work properly.
