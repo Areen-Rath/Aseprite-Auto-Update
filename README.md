@@ -34,4 +34,4 @@ The app is a PowerShell script under the hood that has been built into an app us
 
 Success/failure of an update will be shown at the end in the PowerShell window.
 
-The PowerShell window will be visible for the entirety of the duration of the script run to ensure transparency and to enable the user to check the status of the update.
+The app will silently check for updates. During updation, the PowerShell window will be visible for the entirety of the duration of the updation to ensure transparency and to enable the user to check the status of the update.
