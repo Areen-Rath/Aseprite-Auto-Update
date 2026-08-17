@@ -28,6 +28,10 @@ The app assumes that:
 
 In case of any discrepancy, please refer to the comments in the PowerShell file for steps to address them.
 
+## Prerequisites
+
+Please ensure that the Aseprite folder is a git repo linked to the [Aseprite GitHub repo](https://github.com/aseprite/aseprite).
+
 ## How It Works
 
 The app is a PowerShell script under the hood that has been built into an app using PS2EXE. The PowerShell script checks for any updates by comparing the current version of the local Aseprite Git repo and the latest release of the GitHub repo. In case of a newer version, a dialog box will ask the user whether to update or not, and the user can decide accordingly. If Aseprite is up-to-date, the PowerShell script will open Aseprite normally and exit.
