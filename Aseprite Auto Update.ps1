@@ -1,4 +1,12 @@
-Add-Type -AssemblyName System.Windows.Forms, Microsoft.VisualBasic
+Add-Type -AssemblyName System.Windows.Forms, System.Drawing, Microsoft.VisualBasic
+
+$MethodDefinition = @'
+    [DllImport("shcore.dll")]
+    public static extern int SetProcessDpiAwareness(int value);
+'@
+
+Add-Type -MemberDefinition $MethodDefinition -Name 'DpiUtil' -Namespace 'Win32' -PassThru | Out-Null
+[Win32.DpiUtil]::SetProcessDpiAwareness(2) | Out-Null
 
 <#
     CMake, Ninja, Git and GitHub CLI must be installed and added
@@ -32,7 +40,8 @@ function Open-Aseprite {
 
 $AnchorForm = New-Object System.Windows.Forms.Form
 $AnchorForm.TopMost = $true
-$AnchorForm.Size = New-Object System.Drawing.Size(1,1)
+$AnchorForm.Text = "Aseprite+"
+$AnchorForm.AutoScaleMode = [System.Windows.Forms.AutoScaleMode]::Dpi
 $AnchorForm.StartPosition = 'CenterScreen'
 $AnchorForm.WindowState = 'Minimized'
 $AnchorForm.Show()
@@ -45,6 +54,7 @@ $current = git describe --tags
 $latest = gh release view --json tagName --jq ".tagName"
 if ($current -eq $latest) {
     Open-Aseprite
+    $AnchorForm.Dispose()
     exit
 }
 
@@ -55,6 +65,7 @@ $choice = [Microsoft.VisualBasic.Interaction]::MsgBox(
 )
 if ($choice -eq "No") {
     Open-Aseprite
+    $AnchorForm.Dispose()
     exit
 }
 
