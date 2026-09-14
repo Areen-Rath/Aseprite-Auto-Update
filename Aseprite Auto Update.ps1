@@ -144,10 +144,10 @@ $updateScript = {
     }
 
     (New-Object -ComObject Shell.Application).ShellExecute("build\bin\aseprite.exe", "", "", "", 4)
+
+    exit
 }
 
 $encodedCommand = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($updateScript.ToString()))
 
 Start-Process powershell -ArgumentList "-EncodedCommand", $encodedCommand
-
-exit
