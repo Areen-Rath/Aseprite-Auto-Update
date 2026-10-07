@@ -28,7 +28,7 @@ Set-Location $asepritePath
 
 function Open-Aseprite {
     try {
-        & "$asepritePath\build\bin\aseprite.exe"
+        Start-Process -FilePath "$asepritePath\build\bin\aseprite.exe"
     } catch {
         [Microsoft.VisualBasic.Interaction]::MsgBox(
             "Failed to open Aseprite. Please ensure that Aseprite is properly installed and that the path to Aseprite is correct.",
@@ -141,12 +141,10 @@ $updateScript = {
         pause
         exit
     }
-
-    (New-Object -ComObject Shell.Application).ShellExecute("build\bin\aseprite.exe", "", "", "", 4)
-
-    exit
 }
 
 $encodedCommand = [System.Convert]::ToBase64String([System.Text.Encoding]::Unicode.GetBytes($updateScript.ToString()))
 
-Start-Process powershell -ArgumentList "-EncodedCommand", $encodedCommand
+Start-Process powershell -ArgumentList "-EncodedCommand", $encodedCommand -Wait
+
+Start-Process -FilePath "build\bin\aseprite.exe"
