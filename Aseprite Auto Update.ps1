@@ -49,8 +49,7 @@ $AnchorForm.Show()
 $ParentHandle = New-Object System.Windows.Forms.NativeWindow
 $ParentHandle.AssignHandle($AnchorForm.Handle)
 
-$current = git describe --tags
-
+$current = git describe --tags --abbrev=0
 $latest = gh release view --json tagName --jq ".tagName"
 if ($current -eq $latest) {
     Open-Aseprite
@@ -112,7 +111,7 @@ $updateScript = {
         New-Item -ItemType Directory -Path "build"
     }
 
-    $current = git describe --tags
+    $current = git describe --tags --abbrev=0
     $version = $current + "-dev"
     Write-Output "Changing version in CMakeLists.txt to $version..."
     $lines = Get-Content -Path "src\ver\CMakeLists.txt"
